@@ -1,11 +1,15 @@
 import './App.css';
-import StoreIndex from './containers/StoreIndex';
+import { StoreIndex, StoreShow } from './components';
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
     <>
     <h1>Ustore</h1>
-    <StoreIndex/>
+    <Switch>
+        <Route path="/stores/:id"><StoreShow/></Route>
+        <Route exact path="/stores"><StoreIndex/></Route>
+    </Switch>    
     </>
   );
 }

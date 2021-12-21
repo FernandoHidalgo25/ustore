@@ -1,12 +1,12 @@
 import { useEffect } from "react"
 import { getStores } from '../redux/actionCreators'
 import { connect } from 'react-redux'
-import StoreCard from "../components/StoreCard"
+import { StoreCard } from "../components"
 
 
 function StoreIndex({getStores, stores}){
 
-    useEffect(() => stores.length === 0 && getStores(), [stores])
+    useEffect(getStores, [getStores])
 
     return <div className="cards">
         {stores.map(store => <StoreCard {...store} key={store.id}/>)}
