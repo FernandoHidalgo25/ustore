@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { getStores } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import { StoreCard } from "../components"
+import { useParams } from 'react-router-dom'
 
 
 function StoreIndex({getStores, stores}){
