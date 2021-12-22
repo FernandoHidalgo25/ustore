@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { submitSignup } from '../redux/actionCreators'
+import { submitSignup, submitLogin } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 //import { useHistory } from 'react-router-dom'
 
@@ -12,17 +12,16 @@ function Auth(props){
   //const history = useHistory()
 
   const toggleSignup = () => setSignup(!signup)
-  console.log(props)
 
-  //const handleSubmit = (e) => {
-    //e.preventDefault()
-    //signup ? props.submitSignup({ username, password, zip_code: zipCode }) : props.submitLogin({username, password})
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    signup ? props.submitSignup({ username, password, zip_code: zipCode }) : props.submitLogin({username, password})
     //history.push("/stores")
-  //}
+  }
 
   return <>
     {signup ? <h1>Sign up!</h1> : <h1>Login!</h1>}
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         Username:
         <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -41,4 +40,4 @@ function Auth(props){
   </>
 }
 
-export default connect(null, { submitSignup })(Auth);
+export default connect(null, { submitSignup, submitLogin })(Auth);
