@@ -11,9 +11,14 @@ const initialStore = {
     comments: []
 }
 
+const initialUser = {
+    username: ""
+}
+
 const initialState = {
     stores: [],
-    selectedStore: initialStore
+    selectedStore: initialStore,
+    user: initialUser
 }
 
 export function reducer(state=initialState, action){

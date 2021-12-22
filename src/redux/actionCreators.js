@@ -13,3 +13,16 @@ export const getStore = (id) => {
 }
 
 export const clearStore = () => ({type: "CLEAR_STORE"})
+
+export const submitSignup = (user) => {
+    return dispatch => fetch("http://localhost:3000/users", {
+        method: 'POST', //or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+    })
+    .then(res => res.json())
+    .then(console.log)
+    
+} 
