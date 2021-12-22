@@ -11,3 +11,5 @@ export const getStore = (id) => {
     .then(store => dispatch({type: "GET_STORE", payload: store})
     )
 }
+
+export const clearStore = () => ({type: "CLEAR_STORE"})

@@ -1,16 +1,19 @@
+const initialStore = {
+    name: "",
+    url: "",
+    lat: null,
+    long: null,
+    imageUrl: "",
+    address: "",
+    kindOfShop: "",
+    zipCode: null,
+    id: null,
+    comments: []
+}
+
 const initialState = {
     stores: [],
-    selectedStore: {
-        name: "",
-        url: "",
-        lat: null,
-        long: null,
-        imageUrl: "",
-        address: "",
-        kindOfShop: "",
-        zipCode: null,
-        id: null,
-    }
+    selectedStore: initialStore
 }
 
 export function reducer(state=initialState, action){
@@ -18,7 +21,9 @@ export function reducer(state=initialState, action){
         case "GET_STORES":
             return {...state, stores: action.payload};
         case "GET_STORE":
-            return {...state, selectedStore: action.payload}
+            return {...state, selectedStore: action.payload};
+        case "CLEAR_STORE":
+            return {...state, selectedStore: initialStore};
         default:
             return {...state}
     }
