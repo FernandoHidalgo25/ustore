@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { logout } from '../redux/actionCreators'
 
-function Nav(){
+function Nav({logout}){
     return <nav>
         <NavLink to="/stores"><button>See all Stores!!</button></NavLink>
         <br/>
-        <button>Logout!</button> 
+        <button onClick={logout}>Logout!</button> 
     </nav>
 }
 
-export default Nav;
+export default connect(null, {logout})(Nav);

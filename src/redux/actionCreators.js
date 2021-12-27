@@ -56,3 +56,10 @@ export const autoLogin = () => {
         dispatch({type: "SET_USER", payload: response.user})
     })
 } 
+
+export const logout = () => {
+    return dispatch =>{
+        localStorage.clear()
+        dispatch({type: "LOGOUT"})
+    }
+}
