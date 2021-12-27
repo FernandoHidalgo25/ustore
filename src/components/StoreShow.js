@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { getStore, clearStore } from '../redux/actionCreators'
 import { useEffect } from 'react'     
 import { Link } from 'react-router-dom'    
-//import { Comments , CommentForm} from './'  
+import { Comments , CommentForm} from './'  
 
 function StoreShow({getStore, name, url, lat, long, imageUrl, address, kindOfShop, zipCode, clearStore, id}){
     const routeId = useParams().id
@@ -21,6 +21,7 @@ function StoreShow({getStore, name, url, lat, long, imageUrl, address, kindOfSho
         <img src={imageUrl} alt={name}/>
         <p>{kindOfShop}</p>
         <p>{address}</p>
+        <Comments/>
         <Link to={`/stores/${parseInt(routeId) + 1}`}> Go to next Store</Link>
     </div>
         
