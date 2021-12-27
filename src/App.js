@@ -2,15 +2,18 @@ import './App.css';
 import { StoreIndex, StoreShow, Nav, Auth } from './components'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { useEffect } from 'react'
+import { autoLogin } from './redux/actionCreators'
 
+function App({user, autoLogin}) {
 
-function App(props) {
-  console.log(props)
+  useEffect(() => localStorage.token && autoLogin(), [autoLogin])
+  
   return (
     <>
     <h1>Ustore</h1>
     <Nav/>
-    { props.user.username ?
+    { user.username ?
     <Switch>
         <Route path="/stores/:id"><StoreShow/></Route>
         <Route exact path="/stores"><StoreIndex/></Route>
@@ -24,4 +27,4 @@ function App(props) {
 
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {autoLogin})(App);
