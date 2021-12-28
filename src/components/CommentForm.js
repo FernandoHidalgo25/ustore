@@ -11,6 +11,8 @@ function CommentForm({storeId, submitComment}){
         e.preventDefault() 
         const newComment = {rating, content}
         submitComment(newComment, storeId)
+        setRating(5)
+        setContent("")
     }
 
     return <form className="new_comment" onSubmit={onSubmit}>

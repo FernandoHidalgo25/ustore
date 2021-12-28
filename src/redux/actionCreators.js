@@ -54,9 +54,8 @@ export const submitComment = (comment, storeId) => {
         body: JSON.stringify(comment)
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(comment => dispatch({type: "ADD_COMMENT", payload: comment}))
 }
-
 
 export const autoLogin = () => {
     return dispatch => fetch("http://localhost:3000/me", {
