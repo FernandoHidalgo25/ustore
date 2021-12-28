@@ -18,7 +18,7 @@ function CommentForm({storeId, submitComment}){
     return <form className="new_comment" onSubmit={onSubmit}>
         <label>
             Rating:
-            <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)} value={rating}/>
+            <input type="number" name="rating" min="1" max="10" onChange={(e) => setRating(e.target.value)} value={rating}/>
         </label><br/>
         <label>
             Comment:<br/>

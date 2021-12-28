@@ -53,8 +53,13 @@ export const submitComment = (comment, storeId) => {
         },
         body: JSON.stringify(comment)
     })
-    .then(res => res.json())
-    .then(comment => dispatch({type: "ADD_COMMENT", payload: comment}))
+    .then(res => {
+        if (res.ok) {
+          res.json().then(review => dispatch({type: "ADD_COMMENT", payload: review}))
+        } else {
+          res.json().then(res => alert(res.errors))
+        }
+    })
 }
 
 export const autoLogin = () => {
