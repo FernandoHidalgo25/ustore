@@ -44,6 +44,20 @@ export const submitLogin = (user) => {
     })
 }
 
+export const submitComment = (comment, storeId) => {
+    return dispatch => fetch(`http://localhost:3000/stores/${storeId}/comments`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.token
+        },
+        body: JSON.stringify(comment)
+    })
+    .then(res => res.json())
+    .then(console.log)
+}
+
+
 export const autoLogin = () => {
     return dispatch => fetch("http://localhost:3000/me", {
         headers: {

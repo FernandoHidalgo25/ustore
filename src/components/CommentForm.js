@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-//import { submitComment } from '../redux/actionCreators'
+import { submitComment } from '../redux/actionCreators'
 
-function CommentForm({storeId}){
+function CommentForm({storeId, submitComment}){
 
     const [rating, setRating] = useState(5)
     const [content, setContent] = useState("")
 
     const onSubmit = (e) => {
         e.preventDefault() 
-        const newComment = {rating, content, storeId}
-        console.log(newComment)
+        const newComment = {rating, content}
+        submitComment(newComment, storeId)
     }
 
     return <form className="new_comment" onSubmit={onSubmit}>
@@ -28,5 +28,4 @@ function CommentForm({storeId}){
 
 const mapStateToProps = (state) => ({storeId: state.selectedStore.id})
 
-export default connect(mapStateToProps)(CommentForm)
-//export default connect(mapStateToProps, {submitComment})(CommentForm)
+export default connect(mapStateToProps, {submitComment})(CommentForm)
