@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { useEffect } from 'react'
 import { autoLogin } from './redux/actionCreators'
+import Navbar from './components/Navbar/Navbar'
 
 function App({user, autoLogin}) {
 
@@ -11,6 +12,7 @@ function App({user, autoLogin}) {
   
   return (
     <>
+    <Navbar />
     <h1>Ustore</h1>
     <Nav/>
     { user.username ?

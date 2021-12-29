@@ -1,0 +1,124 @@
+body {
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-family: sans-serif;
+  }
+  
+  h1 {
+    color:  #e7af16;
+    text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+    text-align: center;
+  }
+  
+  .card h1 {
+    font-size: 1.25em;
+  }
+  
+  .new_comment, .edit_comment {
+    margin-left: 30%;
+    min-width: 300px;
+    margin-right: 30%;
+    background-color: #9400ff;
+    border-radius: 20px;
+    margin-bottom: .3em;
+    margin-top: .3em;
+  }
+  
+  
+  input {
+    display: block;
+    margin: .5em auto;
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    justify-content: space-around;
+  }
+  
+  .card {
+    /* width: 300px;
+    height: 500px; */
+    margin: 10px;
+    background-color: #0dff00;
+    border-radius: 10px;
+  }
+  
+  .card img {
+    width: 300px;
+    height: 200px;
+  }
+  
+  .comment {
+    background-color: red;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: .5em;
+    border-radius: 5px;
+    padding: 1em;
+  }
+  
+  .show img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  
+  textarea {
+    width: 80%;
+    font-size: .8em;
+    height: 6em;
+    border-radius: 10px;
+  }
+  
+  .errors {
+    list-style: none;
+    color: yellow;
+    padding-left: 0;
+  }
+  
+  .field_with_errors {
+    color: red;
+  }
+  
+  .field_with_errors > input {
+    border: solid red 3px;
+  }
+  
+  .flash {
+    max-width: 500px;
+    margin: 1em auto;
+    padding: .25em 0;
+    font-size: .8em;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  
+  .flash.errors {
+    background-color: red;
+  }
+  
+  .flash.notices {
+    background-color: yellow;
+    color: black;
+  }
+  
+  /* stolen from w3 schools: https://www.w3schools.com/howto/howto_css_loader.asp */
+  .loader {
+    border: 100px solid #ff69b4;
+    border-top: 100px solid #9400ff;
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    animation: spin 2s linear infinite;
+  }
+  
+  
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
